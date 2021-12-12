@@ -42,42 +42,42 @@ componentDidMount() {
   render() {
     const{ isLoading, articles } = this.state;
     return (
-      <View>
-        <View style={{ textAlign: 'center', padding: 10, backgroundColor: '#e0e0e0', border: '1px solid #bdbdbd' }}>
-          <Text style={{ fontSize: 24 }}>Sports</Text>
-        </View>
-        <View>
-      <ScrollView>
-          {!isLoading ? (
-              articles.map(article => {
-              const {date, title, url, description, urlToImage} = article;
-              return(
-                  <Card key={url} style={{marginTop:10, borderColor:'black', borderRadius:5, borderBottomWidth:1}}
-                  onPress={()=>{Linking.openURL(`${url}`)}}
-                  >
-                      <View style={{flexDirection:'row',}}>
-                          {/*  Text */}
-                          <View style={{justifyContent:'space-around', flex:2/3, margin:10}}>
-                              <Title>{title}</Title>
-                          </View>
-                          {/*  Image */}
-                          <View style={{flex:1/3, margin:10}}>
-                              <Image style={{width:120, height:120}} source={{uri: urlToImage}} />
-                          </View>  
-                      </View>
-                      <View style={{margin:10}}>
-                          <Paragraph>{description}</Paragraph>
-                          <Text>Published At: {date}</Text>
-                      </View>
-                  </Card>
-              );
-          })
-          ) : (
-          <Text style={{justifyContent:'center', alignItems:'center'}}>Loading...</Text>
-          )}
-      </ScrollView>
-      </View>
-      </View>
+      <View style={{ flex:1, backgroundColor:'#EFECF4' }}>
+      <View style={{ paddingTop:48, paddingBottom:16, backgroundColor:'#FFF', alignItems:'center', borderBottomWidth:1, justifyContent:'center', borderBottomColor:'#EBECF4', shadowColor:'#454D65', shadowOffset:{height:5}, shadowRadius:15, shadowOpacity:0.2, zIndex:10 }}>
+        <Text style={{ fontSize:20, fontWeight:'500' }}>
+           Sports
+        </Text>
+       </View>
+     <ScrollView>
+         {!isLoading ? (
+             articles.map(article => {
+             const {date, title, url, description, urlToImage} = article;
+             return(
+                 <Card key={url} style={{marginTop:10, borderColor:'black', borderRadius:5, borderBottomWidth:1}}
+                 onPress={()=>{Linking.openURL(`${url}`)}}
+                 >
+                     <View style={{flexDirection:'row',}}>
+                         {/*  Text */}
+                         <View style={{justifyContent:'space-around', flex:2/3, margin:10}}>
+                             <Title>{title}</Title>
+                         </View>
+                         {/*  Image */}
+                         <View style={{flex:1/3, margin:10}}>
+                             <Image style={{width:120, height:120}} source={{uri: urlToImage}} />
+                         </View>  
+                     </View>
+                     <View style={{margin:10}}>
+                         <Paragraph>{description}</Paragraph>
+                         <Text>Published At: {date}</Text>
+                     </View>
+                 </Card>
+             );
+         })
+         ) : (
+         <Text style={{justifyContent:'center', alignItems:'center'}}>Loading...</Text>
+         )}
+     </ScrollView>
+ </View>
     );
   }
 }
